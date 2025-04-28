@@ -1,0 +1,13 @@
+- name: Install Java on multiple servers
+  hosts: java_servers
+  become: yes
+  tasks:
+    - name: Update packages
+      yum:
+        name: '*'
+        state: latest
+
+    - name: Install Java 17
+      yum:
+        name: java-17-amazon-corretto
+        state: present
